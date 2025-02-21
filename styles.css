@@ -1,0 +1,156 @@
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0; /* Position sidebar on the left */
+  background-color: #111;
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background-color: #C9FFB3;
+}
+
+#top_homepage {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+#copy_btn {
+  font-size: 12.5px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  display: block;
+  margin-left: 48%;
+  padding: 10px 15px;
+  border: none;
+  position: absolute;
+  font-family: "Lato", sans-serif;
+}
+
+#back_to_home {
+  font-size: 12.5px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  display: block;
+  margin-left: 46.25%;
+  padding: 10px 15px;
+  border: none;
+  position: absolute;
+  font-family: "Lato", sans-serif;
+}
+
+#back_to_play_btn {
+  font-size: 12.5px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  display: block;
+  margin-left: 46.25%;
+  padding: 10px 15px;
+  border: none;
+  position: absolute;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+#main_lang {
+  align-content: center;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px; /* Adjust close button position */
+  font-size: 36px;
+  margin-left: 0; /* Remove margin to align properly */
+}
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 16px;
+  margin-left: 250px; /* Adjust main content to avoid sidebar */
+  position: relative;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+}
+
+/* Position the open button at the top left corner */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  position: absolute;
+  top: 10px;
+  font-family: "Lato", sans-serif;
+  left: 10px; /* Move button to the left */
+}
+
+#play_now_bttn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  font-family: "Lato", sans-serif;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+.container {
+  text-align: center;
+  background-color: #C9FFB3;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: "Lato", sans-serif;
+}
+
+.language-options a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  background-color: #000000;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.language-options a:hover {
+  background-color: #000000;
+}

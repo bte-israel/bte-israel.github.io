@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="ranks.css">
+    <title>Apply for builder rank</title>
+</head>
+<body>
+    <form id="userForm">
+        <label for="username">Minecraft Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="rank">Rank:</label>
+        <select id="rank" name="rank" required>
+            <option value="Builder">Builder</option>
+        </select><br><br>
+
+        <button type="submit">Apply</button>
+    </form>
+
+    <script>
+        // Replace with your Discord webhook URL
+        const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1337867521155530762/c8ySPrumGwzhnuj4dGe5KVlVp8PomlyjCia74-kWpJ6G4bYGZmD9HC4i-lMWFD_95oQA";
+
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const rank = document.getElementById('rank').value;
+
+            // Check if the Minecraft username exists
+            fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`)
+                .then(response => {
+                    if (response.status === 200) {
+                        return response.json();
+                    } else {
+                        throw new Error('Username does not exist');
+                    }
+                })
+                .then(data => {
+                    const discordData = {
+                        content: `New User Added:\nUsername: ${username}\nRank: ${rank}\nVerified: true`
+                    };
+
+                    // Send notification to Discord
+                    return fetch(DISCORD_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(discordData)
+                    });
+                })
+                .then(response => {
+                    if (response.status === 204) {
+                    } else {
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error: ' + error.message);
+                });
+        });
+    </script>
+</body>
+</html>
