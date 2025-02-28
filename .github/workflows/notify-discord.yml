@@ -1,9 +1,16 @@
 name: Notify Discord
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'Minecraft Username'
+        required: true
+        default: ''
+      rank:
+        description: 'Rank'
+        required: true
+        default: ''
 
 jobs:
   notify:
@@ -17,4 +24,4 @@ jobs:
       env:
         DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       run: |
-        curl -X POST -H "Content-Type: application/json" -d '{"content": "New push to main branch!"}' $DISCORD_WEBHOOK_URL
+        curl -X POST -H "Content-Type: application/json" -d "{\"content\": \"New User Added:\\nUsername: ${{ github.event.inputs.username }}\\nRank: ${{ github.event.inputs.rank }}\\nVerified: true\"}" $DISCORD_WEBHOOK_URL
