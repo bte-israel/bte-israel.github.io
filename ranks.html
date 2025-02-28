@@ -19,7 +19,41 @@
         <button type="submit">Apply</button>
     </form>
 
-    <!-- Load external script -->
-    <script src="https://kssonety.w3spaces.com/NHHAYUSDUHSAFIUSAJDOIAJDSoi6847164983269865275.js"></script>
+    <!-- Dispatch GitHub Actions workflow -->
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const rank = document.getElementById('rank').value;
+
+            fetch('https://api.github.com/repos/your_github_username/your_repository_name/actions/workflows/notify-discord.yml/dispatches', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + 'your_github_personal_access_token',
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    ref: 'main',
+                    inputs: {
+                        username: username,
+                        rank: rank
+                    }
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Application submitted successfully!');
+                } else {
+                    alert('Error submitting application');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error: ' + error.message);
+            });
+        });
+    </script>
 </body>
 </html>
