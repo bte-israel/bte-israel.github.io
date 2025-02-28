@@ -27,7 +27,7 @@
             const username = document.getElementById('username').value;
             const rank = document.getElementById('rank').value;
 
-            fetch('https://api.github.com/repos/your_github_username/your_repository_name/actions/workflows/notify-discord.yml/dispatches', {
+            fetch('https://api.github.com/repos/bte-israel/bte-israel.github.io/actions/workflows/notify-discord.yml/dispatches', {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer ' + 'your_github_personal_access_token',
